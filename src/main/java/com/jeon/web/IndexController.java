@@ -1,5 +1,6 @@
 package com.jeon.web;
 
+import com.jeon.config.auth.LoginUser;
 import com.jeon.config.auth.dto.SessionUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -21,9 +22,8 @@ public class IndexController {
 
 
     @GetMapping("/")
-    public String index(Model model){
+    public String index(Model model, @LoginUser SessionUser user){
         model.addAttribute("posts",postsService.findAllDesc());
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
 
         if(user != null){
             model.addAttribute("userName",user.getName());
