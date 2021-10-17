@@ -10,3 +10,7 @@
 ### AWS
 
 * Beanstalk로 배포
+
+## Spring 이론
+* 롬복
+* JPA
